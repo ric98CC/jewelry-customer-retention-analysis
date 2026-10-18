@@ -81,10 +81,8 @@ jewelry-customer-retention-analysis/
 │   └── 05_basket.sql              ← prodotti acquistati insieme
 │
 ├── results/                       ← output delle query in CSV
-├── reports/
-│   └── figures/                   ← grafici usati in questo README
+├── reports/                       ← grafici usati in questo README
 │
-├── .gitignore
 └── README.md
 ```
 
@@ -135,24 +133,27 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 > Sostituisci i nomi dei file con quelli presenti in `reports/figures/`.
 
 ### Andamento mensile del fatturato
-![Fatturato mensile](reports/figures/01_monthly_revenue.png)
+![Fatturato mensile](reports/01_fattrato_mensile.png)
 *`<!-- TODO: messaggio principale, es. picchi a dicembre e febbraio -->`*
 
 ### Matrice di retention per coorte
-![Retention per coorte](reports/figures/02_cohort_retention.png)
+![Retention per coorte](reports/02_retention_coorti.png)
 *`<!-- TODO: es. solo il X% dei clienti torna entro 3 mesi -->`*
 
 ### Distribuzione del tempo al riacquisto
-![Time to repurchase](reports/figures/03_time_to_repurchase.png)
+![Time to repurchase](reports/03_tempo_al_ritorno.png)
 *`<!-- TODO: es. la mediana è di N giorni -->`*
 
 ### Segmenti RFM
-![Segmenti RFM](reports/figures/04_rfm_segments.png)
+![Segmenti RFM](reports/04_segmenti_rfm.png)
 *`<!-- TODO: es. i Champions sono il X% dei clienti ma il Y% del fatturato -->`*
 
 ### Curva di Pareto
-![Pareto](reports/figures/05_pareto.png)
+![Pareto](reports/05_pareto.png)
 *`<!-- TODO: es. il 20% dei clienti genera il X% del fatturato -->`*
+
+### Categorie
+![Pareto](reports/06_coppie_categorie.png)
 
 ---
 
