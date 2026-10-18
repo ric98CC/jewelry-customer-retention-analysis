@@ -33,7 +33,7 @@
 -- Come negli script precedenti, una vista legge direttamente il file Parquet.
 -- -----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW order_lines AS
-SELECT * FROM '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/processed/orders_clean.parquet';
+SELECT * FROM 'data/processed/orders_clean.parquet';
 
 
 -- -----------------------------------------------------------------------------
@@ -209,6 +209,6 @@ SELECT * FROM product_pairs;
 -- -----------------------------------------------------------------------------
 -- 5. ESPORTAZIONE dei risultati per i grafici del README
 -- -----------------------------------------------------------------------------
-COPY basket_size    TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/05_basket_size.csv'    (HEADER, DELIMITER ',');
-COPY category_pairs TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/05_category_pairs.csv' (HEADER, DELIMITER ',');
-COPY product_pairs  TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/05_product_pairs.csv'  (HEADER, DELIMITER ',');
+COPY basket_size    TO 'results/05_basket_size.csv'    (HEADER, DELIMITER ',');
+COPY category_pairs TO 'results/05_category_pairs.csv' (HEADER, DELIMITER ',');
+COPY product_pairs  TO 'results/05_product_pairs.csv'  (HEADER, DELIMITER ',');
