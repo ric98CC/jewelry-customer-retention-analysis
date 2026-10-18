@@ -23,7 +23,7 @@
 -- Una vista non copia i dati: legge direttamente il file Parquet.
 -- -----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW order_lines AS
-SELECT * FROM '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/processed/orders_clean.parquet';
+SELECT * FROM 'data/processed/orders_clean.parquet';
 
 
 -- -----------------------------------------------------------------------------
@@ -254,6 +254,6 @@ FROM cumulato;
 -- 9. ESPORTAZIONE dei risultati per i grafici del README
 -- (la cartella results/ deve esistere)
 -- -----------------------------------------------------------------------------
-COPY eda_monthly_trend TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/eda_monthly_trend.csv' (HEADER, DELIMITER ',');
-COPY eda_categories    TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/eda_categories.csv'    (HEADER, DELIMITER ',');
-COPY eda_price_bands   TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/eda_price_bands.csv'   (HEADER, DELIMITER ',');
+COPY eda_monthly_trend TO 'results/eda_monthly_trend.csv' (HEADER, DELIMITER ',');
+COPY eda_categories    TO 'results/eda_categories.csv'    (HEADER, DELIMITER ',');
+COPY eda_price_bands   TO 'results/eda_price_bands.csv'   (HEADER, DELIMITER ',');
