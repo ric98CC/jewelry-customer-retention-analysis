@@ -24,7 +24,7 @@
 -- Una vista non copia i dati: legge direttamente il file Parquet.
 -- -----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW order_lines AS
-SELECT * FROM '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/processed/orders_clean.parquet';
+SELECT * FROM 'data/processed/orders_clean.parquet';
 
 
 -- -----------------------------------------------------------------------------
@@ -272,4 +272,4 @@ ORDER BY periodo;
 -- -----------------------------------------------------------------------------
 -- 9. ESPORTAZIONE della matrice per i grafici (heatmap di coorte)
 -- -----------------------------------------------------------------------------
-COPY cohort_retention TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/cohort_retention.csv' (HEADER, DELIMITER ',');
+COPY cohort_retention TO 'results/cohort_retention.csv' (HEADER, DELIMITER ',');
