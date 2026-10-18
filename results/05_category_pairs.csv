@@ -1,0 +1,14 @@
+categoria_a,categoria_b,ordini_insieme,support_pct,confidence_a_b_pct,confidence_b_a_pct,lift
+bracelet,necklace,114,1.01,9.8,22.7,2.19
+earring,ring,2485,22.11,41.0,48.6,0.9
+earring,necklace,191,1.7,3.2,38.0,0.71
+brooch,pendant,30,0.27,19.1,0.9,0.66
+earring,pendant,1052,9.36,17.4,32.6,0.6
+brooch,earring,49,0.44,31.2,0.8,0.58
+bracelet,earring,339,3.02,29.1,5.6,0.54
+bracelet,ring,275,2.45,23.6,5.4,0.52
+bracelet,pendant,165,1.47,14.2,5.1,0.49
+necklace,pendant,68,0.61,13.5,2.1,0.47
+pendant,ring,652,5.8,20.2,12.7,0.44
+necklace,ring,93,0.83,18.5,1.8,0.41
+brooch,ring,24,0.21,15.3,0.5,0.34
