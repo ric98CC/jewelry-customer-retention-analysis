@@ -133,7 +133,7 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 > Sostituisci i nomi dei file con quelli presenti in `reports/figures/`.
 
 ### Andamento mensile del fatturato
-![Fatturato mensile](reports/01_fattrato_mensile.png)
+![Fatturato mensile](reports/01_fatturato_mensile.png)
 *`<!-- TODO: messaggio principale, es. picchi a dicembre e febbraio -->`*
 
 ### Matrice di retention per coorte
