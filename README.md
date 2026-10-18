@@ -67,9 +67,9 @@ L'obiettivo è tradurre i dati in **azioni CRM concrete**: quando contattare un 
 ```
 jewelry-customer-retention-analysis/
 │
-├── data/                          ← escluso da GitHub
+├── data/                          
 │   ├── raw/
-│   │   └── jewelry_raw_data.csv   ← CSV originale, mai modificato
+│   │   └── jewelry_raw_data.csv   ← CSV originale
 │   └── processed/
 │       └── orders_clean.parquet   ← generato da 01_data_quality.sql
 │
