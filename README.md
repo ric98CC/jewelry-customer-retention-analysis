@@ -236,7 +236,7 @@ I risultati vengono esportati in `results/`; il database `jewelry.duckdb` viene 
 
 **Riccardo Cuccu** — CRM & Marketing Automation Specialist
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/<tuo-profilo>)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/<tuo-username>)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rcuccu)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/ric98CC)
 
 *Dati: Kaggle — "eCommerce purchase history from jewelry store". Progetto a scopo didattico e di portfolio.*
