@@ -19,7 +19,7 @@
 CREATE OR REPLACE TABLE raw_orders AS
 SELECT *
 FROM read_csv(
-    '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/raw/jewelry_raw_data.csv',
+    'data/raw/jewelry_raw_data.csv',
     header = false,
     delim = ',',
     quote = '"',
@@ -306,4 +306,4 @@ FROM ordini_per_cliente;
 -- 9. ESPORTAZIONE in Parquet per le fasi successive
 -- (i file in data/ sono esclusi da Git tramite .gitignore)
 -- -----------------------------------------------------------------------------
-COPY orders_clean TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/processed/orders_clean.parquet' (FORMAT PARQUET);
+COPY orders_clean TO 'data/processed/orders_clean.parquet' (FORMAT PARQUET);
