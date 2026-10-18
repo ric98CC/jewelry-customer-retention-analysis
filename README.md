@@ -157,19 +157,6 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 
 ---
 
-## 💡 Risultati e raccomandazioni
-
-### Risultati principali
-
-| Area | Risultato |
-|------|-----------|
-| Vendite | `<!-- TODO -->` |
-| Stagionalità | `<!-- TODO -->` |
-| Retention | `<!-- TODO: repeat purchase rate -->` |
-| Tempo al riacquisto | `<!-- TODO: mediana in giorni -->` |
-| Concentrazione del valore | `<!-- TODO: risultato Pareto -->` |
-| Cross-selling | `<!-- TODO: coppia di categorie con lift più alto -->` |
-
 ### Raccomandazioni CRM
 
 1. **Second purchase journey** — attivare un flusso automatico calibrato sul tempo mediano di riacquisto, con il primo contatto `<!-- TODO -->` giorni dopo il primo ordine
@@ -177,30 +164,6 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 3. **Win-back** — campagna mirata ai clienti At Risk prima che diventino Lost
 4. **Cross-selling** — raccomandazioni post-acquisto basate sulle coppie di categorie con lift più alto
 5. **Calendario commerciale** — concentrare budget e comunicazioni sui periodi di picco individuati
-
----
-
-## 🧗 Difficoltà affrontate
-
-- **CSV senza header e con righe di lunghezza diversa** — il rilevamento automatico di DuckDB falliva: ho definito esplicitamente schema e opzioni di importazione e verificato l'allineamento delle colonne
-- **Qualità delle categorie** — valori mancanti e valori numerici nel campo testuale, gestiti `<!-- TODO -->`
-- **Granularità** — il dataset è a livello di riga prodotto e non di ordine: tutte le metriche cliente (frequenza, AOV, retention) vengono calcolate dopo l'aggregazione per `order_id`, per evitare di contare più volte lo stesso ordine
-- **Scelta del dataset** — scartati un dataset da 9 GB (ingestibile in locale) e uno meno legato al business, a favore di un caso realistico di retail
-- `<!-- TODO: aggiungi altre difficoltà incontrate -->`
-
----
-
-## 🚧 Limiti e sviluppi futuri
-
-**Limiti**
-- Dataset anonimizzato: nessun dato demografico, sul canale di acquisizione o sulle campagne
-- Le righe senza `user_id` sono escluse dalle analisi cliente
-- Prezzi in valuta non dichiarata esplicitamente; nessuna informazione su margini e resi
-
-**Sviluppi futuri**
-- Stima del Customer Lifetime Value (CLV) per segmento
-- Modello predittivo di churn o di probabilità di riacquisto
-- Dashboard interattiva (Power BI) collegata ai risultati in `results/`
 
 ---
 
