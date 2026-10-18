@@ -22,7 +22,7 @@
 -- percorsi completi: lo script funziona da qualsiasi cartella lo lanci.
 -- -----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW order_lines AS
-SELECT * FROM '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/data/processed/orders_clean.parquet';
+SELECT * FROM 'data/processed/orders_clean.parquet';
 
 
 -- -----------------------------------------------------------------------------
@@ -130,7 +130,7 @@ ORDER BY segment;
 
 SELECT * FROM segment_summary;
 
-COPY segment_summary TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_rfm_segment_summary.csv' (HEADER);
+COPY segment_summary TO 'results/04_rfm_segment_summary.csv' (HEADER);
 
 
 -- Griglia R x F: numero clienti per ogni combinazione (base per una heatmap)
@@ -141,7 +141,7 @@ COPY (
     FROM customer_scores
     GROUP BY r_score, f_score
     ORDER BY r_score DESC, f_score
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_rfm_grid.csv' (HEADER);
+) TO 'results/04_rfm_grid.csv' (HEADER);
 
 
 -- Dettaglio cliente (utile per una lista di attivazione CRM)
@@ -151,7 +151,7 @@ COPY (
            CONCAT(r_score, f_score, m_score) AS rfm_code
     FROM customer_segments
     ORDER BY segment, monetary DESC
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_customer_segments.csv' (HEADER);
+) TO 'results/04_customer_segments.csv' (HEADER);
 
 
 -- =============================================================================
@@ -187,7 +187,7 @@ COPY (
     JOIN pareto p ON p.cum_pct_customers <= t.top_pct
     GROUP BY t.top_pct
     ORDER BY t.top_pct
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_pareto_summary.csv' (HEADER);
+) TO 'results/04_pareto_summary.csv' (HEADER);
 
 
 -- 5c. Curva di Pareto per decile (10 punti, perfetta per un grafico)
@@ -198,7 +198,7 @@ COPY (
     FROM pareto
     GROUP BY 1
     ORDER BY 1
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_pareto_curve.csv' (HEADER);
+) TO 'results/04_pareto_curve.csv' (HEADER);
 
 
 -- 5d. Contesto: clienti one-shot vs ricorrenti (spiega la forma della curva)
@@ -210,7 +210,7 @@ COPY (
         ROUND(100.0 * SUM(monetary) / SUM(SUM(monetary)) OVER (), 1) AS pct_revenue
     FROM customer_rfm
     GROUP BY 1
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_one_time_vs_repeat.csv' (HEADER);
+) TO 'results/04_one_time_vs_repeat.csv' (HEADER);
 
 
 -- 5e. Test di sensibilità: quanto pesano i clienti "anomali"?
@@ -232,4 +232,4 @@ COPY (
         ROUND(MAX(cum_pct_revenue) FILTER (WHERE cum_pct_customers <= 20), 1) AS top20_pct_revenue_excl_outliers,
         ROUND(MIN(cum_pct_customers) FILTER (WHERE cum_pct_revenue >= 80), 1) AS pct_customers_for_80pct_excl_outliers
     FROM b2c
-) TO '/Users/macbookpro13/Desktop/Riccardo /Develop/CRM RFM ANALYSYS/jewelry-customer-retention-analys/results/04_pareto_sensitivity.csv' (HEADER);
+) TO 'results/04_pareto_sensitivity.csv' (HEADER);
