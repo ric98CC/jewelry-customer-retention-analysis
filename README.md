@@ -15,11 +15,8 @@
 3. [Struttura del repository](#-struttura-del-repository)
 4. [Metodologia](#-metodologia)
 5. [Visualizzazioni chiave](#-visualizzazioni-chiave)
-6. [Risultati e raccomandazioni](#-risultati-e-raccomandazioni)
-7. [Difficoltà affrontate](#-difficoltà-affrontate)
-8. [Limiti e sviluppi futuri](#-limiti-e-sviluppi-futuri)
-9. [Come riprodurre l'analisi](#-come-riprodurre-lanalisi)
-10. [Autore](#-autore)
+6. [Risultati e raccomandazioni](#-raccomandazioni-crm)
+7. [Autore](#-autore)
 
 ---
 
@@ -134,23 +131,18 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 
 ### Andamento mensile del fatturato
 ![Fatturato mensile](reports/01_fatturato_mensile.png)
-*`<!-- TODO: messaggio principale, es. picchi a dicembre e febbraio -->`*
 
 ### Matrice di retention per coorte
 ![Retention per coorte](reports/02_retention_coorti.png)
-*`<!-- TODO: es. solo il X% dei clienti torna entro 3 mesi -->`*
 
 ### Distribuzione del tempo al riacquisto
 ![Time to repurchase](reports/03_tempo_al_ritorno.png)
-*`<!-- TODO: es. la mediana è di N giorni -->`*
 
 ### Segmenti RFM
 ![Segmenti RFM](reports/04_segmenti_rfm.png)
-*`<!-- TODO: es. i Champions sono il X% dei clienti ma il Y% del fatturato -->`*
 
 ### Curva di Pareto
 ![Pareto](reports/05_pareto.png)
-*`<!-- TODO: es. il 20% dei clienti genera il X% del fatturato -->`*
 
 ### Categorie
 ![Pareto](reports/06_coppie_categorie.png)
@@ -159,40 +151,12 @@ Self-join sulla tabella ordini per contare le coppie di categorie acquistate nel
 
 ### Raccomandazioni CRM
 
-1. **Second purchase journey** — attivare un flusso automatico calibrato sul tempo mediano di riacquisto, con il primo contatto `<!-- TODO -->` giorni dopo il primo ordine
-2. **Protezione dei clienti di valore** — programma dedicato ai segmenti Champions e Loyal (accesso anticipato, servizi esclusivi) invece di sconti generalizzati
-3. **Win-back** — campagna mirata ai clienti At Risk prima che diventino Lost
-4. **Cross-selling** — raccomandazioni post-acquisto basate sulle coppie di categorie con lift più alto
-5. **Calendario commerciale** — concentrare budget e comunicazioni sui periodi di picco individuati
+1. **Second purchase journey** — solo il **18,4%** dei clienti torna ad acquistare in un giorno diverso dal primo. Tra chi torna, il secondo acquisto arriva dopo una **mediana di 16 giorni**: il 38% entro 7 giorni, il 58% entro 30 e il 72% entro 90. Il flusso automatico va quindi anticipato, con il **primo contatto 7 giorni dopo il primo ordine**, un reminder a 30 giorni e un ultimo tentativo a 90 giorni, oltre i quali la probabilità di riacquisto cala nettamente.
+2. **Protezione dei clienti di valore** — i **Champions** sono il **3,7%** dei clienti ma generano il **39%** del fatturato (spesa media ~10.800 $). Insieme ai **Loyal** sono il 10,4% della base e valgono il **51,5%** dei ricavi. Per questi clienti serve un programma dedicato (accesso anticipato, servizi esclusivi) invece di sconti generalizzati.
+3. **Win-back** — **2.581** clienti **At Risk** (8% della base, 13,9% del fatturato, spesa media ~1.790 $) hanno già acquistato più volte, ma non lo fanno da tempo. Sono il bersaglio prioritario di una campagna di riattivazione, perché valgono in media oltre 4 volte un cliente Lost (~390 $).
+4. **Cross-selling** — solo il **7%** degli ordini contiene più di una categoria, e tra i clienti che tornano il riacquisto avviene soprattutto **nella stessa categoria**. Il 75,5% di chi ha iniziato con orecchini compra di nuovo orecchini, e lo stesso vale per il 72,7% di chi ha iniziato con anelli. L'unica affinità tra categorie diverse è **bracciale → collana** (lift 1,22). Le raccomandazioni post-acquisto vanno quindi impostate su **"completa la collezione"** nella stessa categoria, più che sul cross-selling tra categorie.
+5. **Calendario commerciale** — nel 2019–2020 **dicembre** da solo vale il **22%** del fatturato annuo e **novembre + dicembre** il **33,5%**. Agosto è il terzo picco, mentre **aprile e maggio** sono i mesi più deboli. Budget e comunicazioni vanno concentrati da novembre a dicembre e ad agosto; aprile e maggio sono adatti ad attività di retention a basso costo.
 
----
-
-## ▶️ Come riprodurre l'analisi
-
-### Requisiti
-- [DuckDB CLI](https://duckdb.org/docs/installation/) (v1.x)
-- Su Mac: `brew install duckdb`
-
-### Passaggi
-
-```bash
-# 1. Clona il repository
-git clone https://github.com/<tuo-username>/jewelry-customer-retention-analysis.git
-cd jewelry-customer-retention-analysis
-
-# 2. Scarica il dataset da Kaggle e salvalo come:
-#    data/raw/jewelry_raw_data.csv
-mkdir -p data/raw data/processed results
-
-# 3. Esegui gli script in ordine
-duckdb jewelry.duckdb < sql/01_data_quality.sql
-duckdb jewelry.duckdb < sql/02_eda.sql
-duckdb jewelry.duckdb < sql/03_retention.sql
-duckdb jewelry.duckdb < sql/04_segmentation.sql
-duckdb jewelry.duckdb < sql/05_basket.sql
-```
-
-I risultati vengono esportati in `results/`; il database `jewelry.duckdb` viene creato automaticamente al primo avvio.
 
 ---
 
